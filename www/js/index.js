@@ -27,6 +27,7 @@ var app = {
     // 'load', 'deviceready', 'offline', and 'online'.
     bindEvents: function() {
         document.addEventListener('deviceready', this.onDeviceReady, false);
+        document.getElementById('conv').addEventListener('click',this.onConvert,false);	
     },
     // deviceready Event Handler
     //
@@ -35,6 +36,16 @@ var app = {
     onDeviceReady: function() {
         app.receivedEvent('deviceready');
     },
+ // My own code to calaculate...
+	onConvert: function()	{
+
+	var tempc=document.getElementById( 'celc' ).value;
+
+	var tcv=parseFloat(tempc);
+	var tf=32+(9/5)*tcv;
+document.getElementById('res').innerHTML="Calculated";
+	document.getElementById('res').innerHTML= "Temperature in Farhenheit : "+tf;
+				},
     // Update DOM on a Received Event
     receivedEvent: function(id) {
         var parentElement = document.getElementById(id);
